@@ -8,29 +8,51 @@ class UserShop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
         elevation: 0,
-        title: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Container(
-            padding: EdgeInsets.all(8),
-            color: Colors.grey[300],
-            child: Row(
+        backgroundColor: Colors.transparent,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Магазин'),
+            Row(
               children: [
-                Icon(
-                  Icons.search,
-                  color: Colors.grey[600],
+                Icon(Icons.calendar_month),
+                SizedBox(
+                  width: 10,
                 ),
-                Container(
-                  child:
-                      Text('Search', style: TextStyle(color: Colors.grey[600])),
-                )
+                Icon(Icons.menu)
               ],
             ),
-          ),
+          ],
         ),
       ),
-      body: ShopGrid(),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
+                padding: EdgeInsets.all(8),
+                color: Colors.grey[300],
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.search,
+                      color: Colors.grey[600],
+                    ),
+                    Container(
+                      child: Text('Search',
+                          style: TextStyle(color: Colors.grey[600])),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Expanded(child: ShopGrid()),
+        ],
+      ),
     );
   }
 }

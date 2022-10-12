@@ -28,7 +28,11 @@ class UserHome extends StatelessWidget {
               Text('Как Инстраграмм', style: TextStyle(color: Colors.black)),
               Row(
                 children: [
-                  Icon(Icons.add),
+                  GestureDetector(
+                      onTap: () {
+                        //! Что угодно - действие
+                      },
+                      child: Icon(Icons.add)),
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Icon(Icons.favorite),
