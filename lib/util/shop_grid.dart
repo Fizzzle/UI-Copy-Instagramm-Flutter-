@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 
-class ExploreGrid extends StatelessWidget {
-  const ExploreGrid({super.key});
+class ShopGrid extends StatelessWidget {
+  ShopGrid({super.key});
+
+  final List<String> userPosts = [];
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        itemCount: 20,
+        itemCount: 10,
         gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(2.0),
-            child: Container(color: Colors.deepPurple[100]),
+            child: Container(
+              color: Colors.pink[100],
+            ),
           );
         });
   }

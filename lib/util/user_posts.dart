@@ -11,6 +11,7 @@ class UserPosts extends StatefulWidget {
 
 class _UserPostsState extends State<UserPosts> {
   bool likes = false;
+  bool saving = false;
 
   @override
   void initState() {
@@ -21,6 +22,12 @@ class _UserPostsState extends State<UserPosts> {
   void likesChange() {
     setState(() {
       likes = !likes;
+    });
+  }
+
+  void savingChange() {
+    setState(() {
+      saving = !saving;
     });
   }
 
@@ -87,7 +94,11 @@ class _UserPostsState extends State<UserPosts> {
                   Icon(Icons.share),
                 ],
               ),
-              Icon(Icons.bookmark),
+              IconButton(
+                  onPressed: savingChange,
+                  icon: saving
+                      ? Icon(Icons.bookmark)
+                      : Icon(Icons.bookmark_border)),
             ],
           ),
         ),
@@ -108,7 +119,7 @@ class _UserPostsState extends State<UserPosts> {
             ],
           ),
         ),
-        //!
+        //! комментарии
         Padding(
           padding: const EdgeInsets.only(left: 16.0, top: 10),
           child: RichText(

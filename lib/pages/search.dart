@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../util/explore_grid.dart';
+
 class UserSearch extends StatelessWidget {
   const UserSearch({super.key});
 
