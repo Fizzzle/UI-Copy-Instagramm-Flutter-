@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:instagramm_ui/util/bubble_stories.dart';
+import 'package:instagramm_ui/util/user_posts.dart';
 
 class UserHome extends StatelessWidget {
-  const UserHome({super.key});
+  UserHome({super.key});
+
+  final List people = [
+    'Maxim',
+    'Eduard',
+    'Liza',
+    'Elena',
+    'Vakulenko',
+    'Andrey',
+    'Grinch',
+    'Pavel',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,20 +41,24 @@ class UserHome extends StatelessWidget {
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Container(
+            height: 110,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: people.length,
+                itemBuilder: (context, index) {
+                  return BubbleStories(text: people[index]);
+                }),
+          ),
           Expanded(
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                BubbleStories(text: 'Maxim'),
-                BubbleStories(text: 'Eduard'),
-                BubbleStories(text: 'Liza'),
-                BubbleStories(text: 'Max'),
-                BubbleStories(text: 'Grinch'),
-                BubbleStories(text: 'FlexRoyal'),
-                BubbleStories(text: 'Vakulenko'),
-              ],
-            ),
-          )
+            child: ListView.builder(
+                itemCount: people.length,
+                itemBuilder: (context, index) {
+                  return UserPosts(
+                    name: people[index],
+                  );
+                }),
+          ),
         ],
       ),
     );

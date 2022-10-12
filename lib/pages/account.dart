@@ -5,6 +5,8 @@ class UserAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Text('Account', style: TextStyle(fontSize: 40)),
+    );
   }
 }

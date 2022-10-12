@@ -5,6 +5,8 @@ class UserShop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Text('Shop', style: TextStyle(fontSize: 40)),
+    );
   }
 }
